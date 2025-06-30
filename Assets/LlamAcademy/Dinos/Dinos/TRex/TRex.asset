@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2925d4c1e14b7349a5e9f2b4329ba1a, type: 3}
+  m_Name: TRex
+  m_EditorClassIdentifier: 
+  <Type>k__BackingField: 4
+  <ArmorType>k__BackingField: {fileID: 11400000, guid: 6fd6ce6cf2be3e643b4bf4b7488f4580,
+    type: 2}
+  <Prefab>k__BackingField: {fileID: 2750719347390758273, guid: b7276c154fc0fa547b6f39d9093675e5,
+    type: 3}
+  <Health>k__BackingField: 535
+  <HealthToCostRatio>k__BackingField: 0.2
+  <AttackConfig>k__BackingField: {fileID: 11400000, guid: 428f6166e3d9bed4c91c347337571b6a,
+    type: 2}
+  <Upgrade>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 610c1a0cee73b2946a43773f930825ac,
+    type: 3}
+  <Cost>k__BackingField: 100
+  <Hotkey>k__BackingField: 43

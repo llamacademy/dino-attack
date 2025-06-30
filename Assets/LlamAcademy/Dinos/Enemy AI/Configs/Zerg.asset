@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d300bd2616f3841a944f3e9fb6b5b7, type: 3}
+  m_Name: Zerg
+  m_EditorClassIdentifier: 
+  <SpawnStyle>k__BackingField: 0
+  <DefenseSpendRange>k__BackingField: {x: 0.1, y: 0.1}
+  <OffenseSpendRange>k__BackingField: {x: 0.9, y: 0.9}
+  <Units>k__BackingField:
+  - UnitSO: {fileID: 11400000, guid: e4e1a43a91351a54fb5249b85abf87e0, type: 2}
+    WeightRange: {x: 0.9, y: 0.9}
+  - UnitSO: {fileID: 11400000, guid: 7a4ffc878a2e6194a8d2e2f896666f79, type: 2}
+    WeightRange: {x: 0.1, y: 0.1}

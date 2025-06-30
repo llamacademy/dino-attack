@@ -1,0 +1,23 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="DinoButton" src="project://database/Assets/LlamAcademy/Dinos/UI/Components/DinoButton.uxml?fileID=9197481963319205126&amp;guid=f7b8fc4899c149f5ac8c9f87a277368b&amp;type=3#DinoButton" />
+    <Style src="project://database/Assets/LlamAcademy/Dinos/UI/RuntimeStyles.uss?fileID=7433441132597879392&amp;guid=ac05589496a7eda4294215ebcae67c02&amp;type=3#RuntimeStyles" />
+    <ui:VisualElement picking-mode="Ignore" class="flex-grow">
+        <ui:VisualElement name="top-bar" class="top-bar flex-row flex-end">
+            <ui:VisualElement name="resources-container" class="flex-row align-center" />
+        </ui:VisualElement>
+        <ui:VisualElement name="center-content" picking-mode="Ignore" class="align-center flex-row">
+            <ui:VisualElement name="logo-container" picking-mode="Ignore">
+                <ui:VisualElement name="logo" picking-mode="Ignore"/>
+            </ui:VisualElement>>
+            <ui:Label picking-mode="Ignore" name="win-lose-text" text="Round Won" class="hidden" />
+        </ui:VisualElement>
+        <ui:VisualElement name="bottom-bar" class="top-bar flex-row align-center">
+            <ui:Label name="wave-text" picking-mode="Ignore" text="Wave 0">
+                <ui:VisualElement class="underline" />
+            </ui:Label>
+            <ui:VisualElement name="dino-button-container" class="flex-row" />
+            <ui:VisualElement class="flex-grow" />
+            <ui:Button name="start-button" text="Start" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

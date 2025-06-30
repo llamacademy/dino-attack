@@ -1,0 +1,64 @@
+﻿.dino-button {
+    scale: 1;
+    translate: 0 0;
+    width: 200px;
+    height: 250px;
+    -unity-text-align: upper-center;
+    color: var(--light);
+    background-image: url("/Assets/LlamAcademy/Dinos/UI/Textures/Dino Icon Background.png");
+    -unity-background-image-tint-color: rgb(88,60,40);
+
+    transition: scale 0.125s ease-out, translate 0.125s ease-in-cubic, -unity-background-image-tint-color 0.125s ease-in;
+}
+
+.dino-button:enabled:active, .dino-button:enabled:hover {
+    scale: 1.05;
+    translate: 0 -12px;
+    -unity-background-image-tint-color: rgb(163,129,105);
+}
+
+.dino-button:disabled {
+    -unity-background-image-tint-color: rgba(88,60,40,144);
+    translate: 0 var(--padding-lg);
+}
+
+.cost {
+    margin-top: -20px;
+}
+
+.dino-icon {
+    margin-top: 48px;
+    width: 150px;
+    height: 150px;
+    align-self: center;
+}
+
+.cost-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 var(--padding-xl);
+    height: 33px;
+    width: 180px;
+    margin-left: 10px; /* half of the delta between width & container width */
+
+    -unity-background-image-tint-color: var(--dark);
+
+    background-image: url("/Assets/LlamAcademy/Dinos/UI/Textures/Tight Rhombus.png");
+}
+
+.cost-icon {
+    background-image: url("/Assets/LlamAcademy/Dinos/Vendor/polyperfect/Low Poly Animated Dinos/- UI/Icon_Meat_Haunch_LP.png");
+    width: 25px;
+    height: 25px;
+}
+
+.dino-button .hotkey {
+    position: absolute;
+    top: -8px;
+    left: var(--padding-lg);
+    -unity-text-align: lower-center;
+    flex-grow: 1;
+}

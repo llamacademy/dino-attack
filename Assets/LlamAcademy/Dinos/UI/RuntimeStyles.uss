@@ -1,0 +1,187 @@
+:root {
+    font-size: 38px;
+    --light: #eeeeee;
+    --light-hover: #ffffff;
+    --dark: #222222;
+    --dark--hover: #111111;
+    --green: #229922;
+    --green-hover: #00cc00;
+    --red: #ac0000;
+    --red-hover: #ff0000;
+    --padding-sm: 4px;
+    --padding-md: 8px;
+    --padding-lg: 16px;
+    --padding-xl: 32px;
+    -unity-font-definition: url("/Assets/LlamAcademy/Dinos/Vendor/Fonts/Labrada-VariableFont_wght.ttf");
+}
+
+.in {
+    scale: 1;
+    transition: scale 0.25s ease-out-elastic;
+}
+.out {
+    scale: 0.8;
+    transition: scale 0.125s ease-out;
+}
+
+#bottom-bar {
+    height: 150px;
+    background-image: url("/Assets/LlamAcademy/Dinos/UI/Textures/Grunge Bar-Final.png");
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-background-image-tint-color: var(--dark);
+}
+
+#top-bar {
+    height: 100px;
+    justify-content: flex-end;
+}
+
+#resources-container {
+    padding-left: var(--padding-lg);
+    padding-right: var(--padding-md);
+    font-size: 48px;
+    height: 100%;
+    width: 400px;
+    background-image: url("/Assets/LlamAcademy/Dinos/UI/Textures/Resources Container Background.png");
+    -unity-background-image-tint-color: var(--dark);
+    color: var(--light);
+}
+
+
+#dino-button-container {
+    scale: 1;
+    position: absolute;
+    bottom: 0;
+    align-self: center;
+    justify-content: space-evenly;
+    width: 700px;
+    margin-left: var(--padding-lg);
+    align-content: flex-end;
+    align-items: flex-end;
+}
+
+#start-button {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--light);
+    -unity-font-style: bold;
+    font-size: 42px;
+    padding-bottom: 16px;
+
+    background-image: url("/Assets/LlamAcademy/Dinos/UI/Textures/button.png");
+    width: 300px;
+    height: 84px;
+    scale: 1;
+    transition: -unity-background-image-tint-color 0.125s ease-out, scale 0.25s ease-in-out;
+}
+
+#start-button:enabled:active {
+    scale: 0.8;
+    transition: -unity-background-image-tint-color 0.125s ease-out, scale 0.25s ease-in-out;
+}
+
+#center-content {
+    flex-grow: 1;
+}
+
+#wave-text {
+    margin-left: var(--padding-xl);
+    padding-left: var(--padding-xl);
+    font-size: 72px;
+    height: 150px;
+    -unity-text-align: middle-left;
+    color: var(--light);
+}
+
+.underline {
+    background-image: url("/Assets/LlamAcademy/Dinos/UI/Textures/Underline.png");
+    width: 100%;
+    height: 100%;
+}
+
+#wave-text .underline {
+    width: 150px;
+    height: 100px;
+    margin-top: 80px;
+    margin-left: 45px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-grow {
+    flex-grow: 1
+}
+
+.text-center {
+    -unity-text-align: middle-center;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}
+
+#win-lose-text {
+    -unity-font-style: bold;
+    color: var(--light);
+    text-shadow: 5px 5px 15px black;
+    font-size: 96px;
+}
+
+#win-lose-text.visible {
+    opacity: 1;
+    scale: 1;
+    translate: 0 -25px;
+    transition: opacity 0.125s ease-in-sine, scale 0.33s ease-in, translate 0.125s ease-in-sine;
+}
+#win-lose-text.hidden {
+    opacity: 0;
+    scale: 0.25;
+    translate: 0 25px;
+    transition: opacity 0.25s ease-in-sine, scale 0.25s ease-in-sine, translate 0.25s ease-in-sine;
+}
+
+
+#logo {
+    width: 90%;
+    height: 90%;
+    align-self: center;
+    background-image: url("/Assets/LlamAcademy/Dinos/UI/Textures/Dinos Logo.png");
+}
+
+#logo-container {
+    scale: 1;
+    translate: 0 0;
+    opacity: 1;
+    overflow: hidden;
+    position: absolute;
+    align-self: center;
+    border-radius: 50%;
+    border-width: 16px;
+    height: 768px;
+    width: 768px;
+
+    transition: scale 0.5s ease-out, translate 0.5s ease-in-out, opacity 0.5s;
+    /*transition-delay: 2s, 2s ,2s;*/
+}
+
+#logo-container.out {
+    scale: 0.5;
+    translate: 0 250;
+    opacity: 0;
+}

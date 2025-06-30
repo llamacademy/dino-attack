@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1eb554c9724f1eb5a9408215bbb209, type: 3}
+  m_Name: Arch Entry Wall Upgrade 1
+  m_EditorClassIdentifier: 
+  <Type>k__BackingField: 3
+  <ArmorType>k__BackingField: {fileID: 11400000, guid: 25efce43cd4962342957fa4a41e1f447,
+    type: 2}
+  <Prefab>k__BackingField: {fileID: -3889935135281698609, guid: 54fc6f273d223614f80a87a3fedf653b,
+    type: 3}
+  <Health>k__BackingField: 250
+  <HealthToCostRatio>k__BackingField: 0.15
+  <AttackConfig>k__BackingField: {fileID: 0}
+  <Upgrade>k__BackingField: {fileID: 11400000, guid: 021ecccc43fbb9b42926a76b49ed746e,
+    type: 2}

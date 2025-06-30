@@ -1,0 +1,14 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement class="flex-row align-center">
+        <ui:VisualElement name="icon" style="width: 75px; height: 75px;">
+            <Bindings>
+                <ui:DataBinding property="style.backgroundImage" data-source-path="Icon" binding-mode="ToTarget" />
+            </Bindings>
+        </ui:VisualElement>
+            <ui:Label name="amount" style="margin-left: 12px; margin-bottom: 20px;">
+            <Bindings>
+                <ui:DataBinding property="text" data-source-path="Amount" binding-mode="ToTarget" source-to-ui-converters="Integer Format" />
+            </Bindings>
+        </ui:Label>
+    </ui:VisualElement>
+</ui:UXML>

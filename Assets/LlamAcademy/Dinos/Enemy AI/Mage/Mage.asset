@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1eb554c9724f1eb5a9408215bbb209, type: 3}
+  m_Name: Mage
+  m_EditorClassIdentifier: 
+  <Type>k__BackingField: 1
+  <ArmorType>k__BackingField: {fileID: 11400000, guid: 5fcb8e6563ee6ce42a14f7e6ddeeb39b,
+    type: 2}
+  <Prefab>k__BackingField: {fileID: 4608295211719527005, guid: c57e5961b9f25c04fbe525f082c74899,
+    type: 3}
+  <Health>k__BackingField: 20
+  <HealthToCostRatio>k__BackingField: 1
+  <AttackConfig>k__BackingField: {fileID: 11400000, guid: e2a83973ee68dc941a56dce71bc8c379,
+    type: 2}
+  <Upgrade>k__BackingField: {fileID: 0}

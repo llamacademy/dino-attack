@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a172c9fe894595a41ab24bb03b7594, type: 3}
+  m_Name: Mage Snare Attack
+  m_EditorClassIdentifier: 
+  <AttackDelay>k__BackingField: 10
+  <DelayDamage>k__BackingField: 0
+  <DelayDamageTime>k__BackingField: 0.75
+  <Priority>k__BackingField: 2
+  <DamagePerType>k__BackingField:
+  - Damage: 5
+    ArmorType: {fileID: 11400000, guid: 307561aac909f9c4c99b59b551529a64, type: 2}
+  - Damage: 10
+    ArmorType: {fileID: 11400000, guid: 6fd6ce6cf2be3e643b4bf4b7488f4580, type: 2}
+  <MaxAttackRange>k__BackingField: 8
+  <AttackParticlePrefab>k__BackingField: {fileID: 2343344689152947854, guid: d713e129784884b43b6260372a68a201,
+    type: 3}
+  <AttackParticleMoveConfig>k__BackingField:
+    <MoveToTarget>k__BackingField: 1
+    <MoveToTargetTime>k__BackingField: 0.25
+    MoveToTargetDelay: 0.5
+    <LocalSpawnOffset>k__BackingField: {x: 0.1999998, y: 1.1, z: 0.4}
+  <SnareDuration>k__BackingField: 3.5

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69fc9d74852400eb9f6dc717b529ddf, type: 3}
+  m_Name: Pachycephalosaurus Auto Attack
+  m_EditorClassIdentifier: 
+  <AttackDelay>k__BackingField: 1.5
+  <DelayDamage>k__BackingField: 1
+  <DelayDamageTime>k__BackingField: 0.27
+  <Priority>k__BackingField: 1
+  <DamagePerType>k__BackingField:
+  - Damage: 15
+    ArmorType: {fileID: 11400000, guid: 25efce43cd4962342957fa4a41e1f447, type: 2}
+  - Damage: 9
+    ArmorType: {fileID: 11400000, guid: 5fcb8e6563ee6ce42a14f7e6ddeeb39b, type: 2}
+  <MaxAttackRange>k__BackingField: 2
+  <AttackParticlePrefab>k__BackingField: {fileID: 8641490634733580316, guid: f4c65e0df8a179547b4dde0d09bdd0c4,
+    type: 3}
+  <AttackParticleMoveConfig>k__BackingField:
+    <MoveToTarget>k__BackingField: 0
+    <MoveToTargetTime>k__BackingField: 2
+    MoveToTargetDelay: 0
+    <LocalSpawnOffset>k__BackingField: {x: 0, y: 0, z: 0}

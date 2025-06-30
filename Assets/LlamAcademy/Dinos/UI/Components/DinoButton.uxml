@@ -1,0 +1,24 @@
+﻿<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="/Assets/LlamAcademy/Dinos/UI/Components/DinoButton.uss" />
+    <ui:VisualElement class="dino-button">
+        <ui:Label class="hotkey" picking-mode="Ignore">
+            <Bindings>
+                <ui:DataBinding property="text" data-source-path="_Hotkey_k__BackingField" binding-mode="ToTarget" source-to-ui-converters="Key Sanitizer" />
+            </Bindings>
+        </ui:Label>
+        <ui:VisualElement class="dino-icon" picking-mode="Ignore">
+            <Bindings>
+                <!-- For Property fields, they're named very weird. Simply "public {type} Variable; can be referenced by "Variable" -->
+                <ui:DataBinding property="style.backgroundImage" data-source-path="_Sprite_k__BackingField" binding-mode="ToTarget" />
+            </Bindings>
+        </ui:VisualElement>
+        <ui:VisualElement class="cost-container" picking-mode="Ignore">
+            <ui:VisualElement class="cost-icon" picking-mode="Ignore" />
+            <ui:Label class="cost" picking-mode="Ignore">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="_Cost_k__BackingField" binding-mode="ToTarget" />
+                </Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
