@@ -17,6 +17,8 @@ namespace LlamAcademy.Dinos.Utility
             return distance;
         }
 
-        public static bool IsAtTargetLocation(NavMeshAgent agent) => (!agent.hasPath && !agent.pathPending) || (agent.hasPath && agent.remainingDistance <= agent.stoppingDistance + agent.radius);
+        public static bool IsAtTargetLocation(NavMeshAgent agent) =>
+            (!agent.hasPath && !agent.pathPending)
+                || (agent.hasPath && agent.remainingDistance <= agent.stoppingDistance + agent.radius);
     }
 }

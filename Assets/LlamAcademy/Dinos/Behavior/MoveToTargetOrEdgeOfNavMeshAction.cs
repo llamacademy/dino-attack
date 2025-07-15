@@ -32,18 +32,16 @@ namespace LlamAcademy.Dinos.Behavior
             QueryFilter = new NavMeshQueryFilter() { agentTypeID = Agent.agentTypeID, areaMask = Agent.areaMask };
 
 
-            // maybe want to find the closest edge instead?
             if (NavMesh.Raycast(SelfTransform.position, TargetTransform.position, out NavMeshHit edgeHit, QueryFilter))
             {
                 Agent.SetDestinationImmediate(edgeHit.position, Agent.radius + Agent.stoppingDistance + Agent.height);
             }
             else
             {
-                Agent.SetDestinationImmediate(TargetTransform.position, Agent.radius + Agent.stoppingDistance + Agent.height);
+                Agent.SetDestinationImmediate(TargetTransform.position,
+                    Agent.radius + Agent.stoppingDistance + Agent.height
+                );
             }
-
-            Vector3 xzTargetPosition = new (TargetTransform.position.x, SelfTransform.position.y, TargetTransform.position.z);
-            TargetIsInRange = Vector3.Distance(xzTargetPosition, SelfTransform.position) <= AttackConfig.Value.GetMinAttackRange();
 
             return Status.Running;
         }

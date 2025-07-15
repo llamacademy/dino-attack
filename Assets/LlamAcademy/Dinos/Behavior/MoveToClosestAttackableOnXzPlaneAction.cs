@@ -52,7 +52,7 @@ namespace LlamAcademy.Dinos.Behavior
             if (raycastHit.hit || samplePositionHit.hit)
             {
                 NavMeshHit hit = GetClosestHit(raycastHit, samplePositionHit, targetLocation);
-                targetLocation = hit.position - (hit.position - targetLocation).normalized * Agent.radius;
+                targetLocation = hit.position - (hit.position - Self.Value.transform.position).normalized * Agent.radius;
             }
 
             return targetLocation;
