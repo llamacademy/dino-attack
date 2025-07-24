@@ -112,13 +112,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.ChainIKConstraint
   m_Weight: 0
   m_Data:
-    m_Root: {fileID: 5977054448333427704}
+    m_Root: {fileID: 2455735199114754847}
     m_Tip: {fileID: 7711411471133410133}
     m_Target: {fileID: 375354316157047683}
-    m_ChainRotationWeight: 1
-    m_TipRotationWeight: 0
-    m_MaxIterations: 15
-    m_Tolerance: 0.0001
+    m_ChainRotationWeight: 0.629
+    m_TipRotationWeight: 0.302
+    m_MaxIterations: 20
+    m_Tolerance: 0.01
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
 --- !u!1 &4919371444693044558
@@ -178,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 5772024317633635039}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.9739866, y: -0.15002441, z: -12.267246}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -340,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 8758550694810364386, guid: 771457ff2c63874469074bf6197eca41,
         type: 3}
       propertyPath: <FollowOffset>k__BackingField.y
-      value: 5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 8758550694810364386, guid: 771457ff2c63874469074bf6197eca41,
         type: 3}
@@ -556,6 +556,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 65.06566
+      objectReference: {fileID: 0}
+    - target: {fileID: 876145699155111042, guid: 59b1d7d6cce1dd047981eec219a5c953,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 876145699155111042, guid: 59b1d7d6cce1dd047981eec219a5c953,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 876145699155111042, guid: 59b1d7d6cce1dd047981eec219a5c953,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 981819230937516734, guid: 59b1d7d6cce1dd047981eec219a5c953,
         type: 3}
@@ -1507,6 +1522,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 170.51184
       objectReference: {fileID: 0}
+    - target: {fileID: 8959273716743818080, guid: 59b1d7d6cce1dd047981eec219a5c953,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959273716743818080, guid: 59b1d7d6cce1dd047981eec219a5c953,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959273716743818080, guid: 59b1d7d6cce1dd047981eec219a5c953,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 9064475277894287571, guid: 59b1d7d6cce1dd047981eec219a5c953,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2070,7 +2100,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7678762660961550401}
   m_Enabled: 0
   m_AgentTypeID: -1372625422
-  m_Radius: 2
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -2205,7 +2235,8 @@ MonoBehaviour:
   IKConstraint:
     <LerpTime>k__BackingField: 0.33
     <MaxWeight>k__BackingField: 0.75
-    <FullWeightDuration>k__BackingField: 1.423
+    <FullWeightDuration>k__BackingField: 0.5
+    <Offset>k__BackingField: {x: 1, y: 2, z: 0}
 --- !u!114 &322475055373841458
 MonoBehaviour:
   m_ObjectHideFlags: 0

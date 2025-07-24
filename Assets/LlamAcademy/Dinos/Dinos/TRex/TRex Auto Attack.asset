@@ -19,9 +19,11 @@ MonoBehaviour:
   <DamagePerType>k__BackingField:
   - Damage: 100
     ArmorType: {fileID: 11400000, guid: 5fcb8e6563ee6ce42a14f7e6ddeeb39b, type: 2}
-  - Damage: 33
+    MinAttackRange: 5.25
+  - Damage: 25
     ArmorType: {fileID: 11400000, guid: 25efce43cd4962342957fa4a41e1f447, type: 2}
-  <MaxAttackRange>k__BackingField: 5
+    MinAttackRange: 0
+  <MaxAttackRange>k__BackingField: 6
   <AttackParticlePrefab>k__BackingField: {fileID: 8641490634733580316, guid: f4c65e0df8a179547b4dde0d09bdd0c4,
     type: 3}
   <AttackParticleMoveConfig>k__BackingField:

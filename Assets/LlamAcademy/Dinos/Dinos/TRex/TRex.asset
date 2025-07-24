@@ -17,7 +17,7 @@ MonoBehaviour:
     type: 2}
   <Prefab>k__BackingField: {fileID: 2750719347390758273, guid: b7276c154fc0fa547b6f39d9093675e5,
     type: 3}
-  <Health>k__BackingField: 535
+  <Health>k__BackingField: 2147483647
   <HealthToCostRatio>k__BackingField: 0.2
   <AttackConfig>k__BackingField: {fileID: 11400000, guid: 428f6166e3d9bed4c91c347337571b6a,
     type: 2}

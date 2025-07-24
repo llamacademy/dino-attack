@@ -27,7 +27,19 @@ namespace LlamAcademy.Dinos.Config
 
             Debug.LogWarning($"{name} is missing an Armor Type Damage Config for {armorType.name}. Using 0 damage");
             return damage;
+        }
 
+        public float GetMinAttackRange(IDamageable damageable)
+        {
+            if (damageable == null) return 0;
+
+            ArmorTypeDamage armorTypeDamage = DamagePerType.FirstOrDefault(item => item.ArmorType == damageable.UnitType.ArmorType);
+            if (armorTypeDamage == null)
+            {
+                return 0;
+            }
+
+            return armorTypeDamage.MinAttackRange;
         }
 
         public abstract void ApplyEffect(IDamageable target);
@@ -37,6 +49,7 @@ namespace LlamAcademy.Dinos.Config
         {
             public int Damage = 5;
             public ArmorTypeSO ArmorType;
+            public float MinAttackRange = 0;
         }
 
         [System.Serializable]

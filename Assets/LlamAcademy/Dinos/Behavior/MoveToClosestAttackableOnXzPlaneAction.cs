@@ -1,4 +1,7 @@
 using System;
+using System.Linq;
+using LlamAcademy.Dinos.Config;
+using LlamAcademy.Dinos.Unit;
 using LlamAcademy.Dinos.Utility;
 using Unity.Behavior;
 using Unity.Properties;
@@ -14,9 +17,12 @@ namespace LlamAcademy.Dinos.Behavior
     {
         [SerializeReference] public BlackboardVariable<GameObject> Self;
         [SerializeReference] public BlackboardVariable<GameObject> TargetObject;
+        [SerializeReference] public BlackboardVariable<AttackConfigSO> AttackConfig;
 
         private Vector3 TargetLocation;
+        private AttackTypeSO MinAttackDistanceAttackType;
         private NavMeshAgent Agent;
+        private IDamageable TargetDamageable;
         private Collider TargetCollider;
 
         protected override Status OnStart()
@@ -24,11 +30,31 @@ namespace LlamAcademy.Dinos.Behavior
             if (Self.Value == null || !Self.Value.TryGetComponent(out Agent) || TargetObject.Value == null)
                 return Status.Failure;
 
+            if (AttackConfig.Value != null)
+            {
+                MinAttackDistanceAttackType = GetMinAttackDistanceAttackType();
+            }
+
             TargetCollider = TargetObject.Value.GetComponentInChildren<Collider>();
+            TargetDamageable = TargetObject.Value.GetComponent<IDamageable>();
             TargetLocation = GetTargetLocation();
 
             Agent.SetDestinationImmediate(TargetLocation, Agent.radius + Agent.stoppingDistance + Agent.height);
             return Status.Running;
+        }
+
+        private AttackTypeSO GetMinAttackDistanceAttackType()
+        {
+            AttackTypeSO minAttackDistanceAttackType = AttackConfig.Value.AttackTypes.First();
+            for (int i = 1; i < AttackConfig.Value.AttackTypes.Length; i++)
+            {
+                if (MinAttackDistanceAttackType.GetMinAttackRange(TargetDamageable) > AttackConfig.Value.AttackTypes[i].GetMinAttackRange(TargetDamageable))
+                {
+                    MinAttackDistanceAttackType = AttackConfig.Value.AttackTypes[i];
+                }
+            }
+
+            return minAttackDistanceAttackType;
         }
 
         private Vector3 GetTargetLocation()
@@ -68,7 +94,28 @@ namespace LlamAcademy.Dinos.Behavior
                 return Status.Running;
             }
 
+            if (AttackConfig.Value != null)
+            {
+                if (XZDistanceIsLessThanMaxAttackDistance(MinAttackDistanceAttackType) || NavMeshUtilities.IsAtTargetLocation(Agent))
+                {
+                    return Status.Success;
+                }
+
+                return Status.Running;
+            }
+
             return NavMeshUtilities.IsAtTargetLocation(Agent) ? Status.Success : Status.Running;
+        }
+
+        protected override void OnEnd()
+        {
+            Agent.destination = Agent.transform.position;
+        }
+
+        private bool XZDistanceIsLessThanMaxAttackDistance(AttackTypeSO attack)
+        {
+            Vector3 xzTargetPosition = new (TargetObject.Value.transform.position.x, Agent.transform.position.y, TargetObject.Value.transform.position.z);
+            return Vector3.Distance(xzTargetPosition, Agent.transform.position) <= attack.GetMinAttackRange(TargetDamageable);
         }
 
         private NavMeshHit GetClosestHit(NavMeshHit hit1, NavMeshHit hit2, Vector3 target)

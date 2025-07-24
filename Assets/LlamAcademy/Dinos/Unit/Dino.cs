@@ -18,8 +18,7 @@ namespace LlamAcademy.Dinos.Unit
         [SerializeField] private Material DefaultMaterial;
         [SerializeField] private ChainIKConstraint ChainIKConstraint;
         [SerializeField] private IKConstraintData IKConstraint;
-        private IDamageable Target;
-        private Vector3 HitTarget;
+        private GameObject Target;
 
         private Coroutine IKCoroutine;
 
@@ -45,10 +44,15 @@ namespace LlamAcademy.Dinos.Unit
 
         private void HandleAttack(GameObject self, GameObject target)
         {
-            if (ChainIKConstraint != null)
+            Target = target;
+
+        }
+
+        private void BeginAttack()
+        {
+            if (ChainIKConstraint != null && Target != null && !Target.transform.TryGetComponent(out Wall _))
             {
-                Vector3 targetPosition = target.transform.position + target.transform.forward * 0.5f;
-                ChainIKConstraint.data.target.position = targetPosition + Vector3.up * 1.5f;;
+                ChainIKConstraint.data.target.position = Target.transform.position + Target.transform.InverseTransformVector(IKConstraint.Offset);
                 if (IKCoroutine != null)
                 {
                     StopCoroutine(IKCoroutine);
@@ -60,10 +64,11 @@ namespace LlamAcademy.Dinos.Unit
         private IEnumerator LerpChainIKWeight()
         {
             float time = Time.deltaTime;
+            ChainIKConstraint.weight = 0;
             while (time < 1)
             {
                 time += Time.deltaTime / IKConstraint.LerpTime;
-                ChainIKConstraint.weight += IKConstraint.MaxWeight * Time.deltaTime;
+                ChainIKConstraint.weight = Mathf.Lerp(0, IKConstraint.MaxWeight, time);
                 yield return null;
             }
 
@@ -148,11 +153,6 @@ namespace LlamAcademy.Dinos.Unit
             GraphAgent.SetVariableValue(DinoGraphConstants.EGG_LOCATION, target);
         }
 
-        public void DealDamage()
-        {
-            // play some particles or something
-        }
-
         private void RestoreDefaultMaterial()
         {
             GetComponentInChildren<Renderer>().material = DefaultMaterial;
@@ -164,6 +164,7 @@ namespace LlamAcademy.Dinos.Unit
             [field: SerializeField] public float LerpTime { get; private set; }
             [field: SerializeField] public float MaxWeight { get; private set; }
             [field: SerializeField] public float FullWeightDuration { get; private set; }
+            [field: SerializeField] public Vector3 Offset { get; private set; }
         }
     }
 }

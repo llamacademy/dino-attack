@@ -1,4 +1,3 @@
-using System;
 using LlamAcademy.Dinos.RoundManagement;
 using LlamAcademy.Dinos.Utility;
 using UnityEngine;
@@ -35,6 +34,7 @@ namespace LlamAcademy.Dinos.Unit
             if (HealthBar != null)
             {
                 HealthBar.gameObject.SetActive(true);
+
                 HealthBarCanvas.Instance.Register(HealthBar, this);
             }
         }

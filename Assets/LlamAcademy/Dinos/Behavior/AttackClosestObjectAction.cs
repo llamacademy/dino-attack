@@ -8,6 +8,7 @@ using LlamAcademy.Dinos.Utility;
 using Unity.Behavior;
 using Unity.Properties;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Pool;
 using Action = Unity.Behavior.Action;
 
@@ -31,6 +32,8 @@ namespace LlamAcademy.Dinos.Behavior
         private IDamageable Damageable;
         private Collider DamageableCollider;
         private Animator Animator;
+        private NavMeshAgent Agent;
+        private bool IsWithinAttackRange;
         private Dictionary<AttackTypeSO, float> AttackTimes = new();
 
         protected override Status OnStart()
@@ -40,6 +43,7 @@ namespace LlamAcademy.Dinos.Behavior
             Transform = Self.Value.transform;
             TargetPosition = GetTargetPosition();
             Animator = Self.Value.GetComponent<Animator>();
+            Agent = Self.Value.GetComponent<NavMeshAgent>();
 
             foreach (AttackTypeSO attackType in AttackConfig.Value.AttackTypes)
             {
@@ -65,7 +69,6 @@ namespace LlamAcademy.Dinos.Behavior
         {
             if (ClosestAttackable.Value == null) return Status.Failure;
 
-            // TODO: Pick highest priority attack that is currently available.
             AttackTypeSO attack = AttackTimes
                 .Where(attack => attack.Value + AttackConfig.Value.GetAttackDelay(attack.Key) < Time.time)
                 .OrderBy(attack => attack.Key.Priority)
@@ -79,12 +82,16 @@ namespace LlamAcademy.Dinos.Behavior
             if (attack == null) return Status.Running; // early abort if no attacks can be used
 
             TargetPosition = GetTargetPosition();
-            if (XZDistanceIsGreaterThanMaxAttackDistance()) return Status.Failure;
+            // Force the dino to move back to keep the attack looking good
+            if (XZDistanceIsLessThanMinAttackDistance(attack) && !MoveToMinDistance(attack))
+            {
+                return Status.Running;
+            }
 
 
             if (Animator != null)
             {
-                Animator.SetBool(AnimationConstants.IS_ATTACKING_PARAMETER, true);
+                Animator.SetTrigger(AnimationConstants.IS_ATTACKING_PARAMETER);
             }
 
             LastAttackTime.Value = Time.time;
@@ -169,11 +176,27 @@ namespace LlamAcademy.Dinos.Behavior
             }
         }
 
-        private bool XZDistanceIsGreaterThanMaxAttackDistance()
+        private bool MoveToMinDistance(AttackTypeSO attack)
         {
             Vector3 xzTargetPosition = new (TargetPosition.x, Transform.position.y, TargetPosition.z);
-            // move to closest distance of any attack types, if they differ
-            return Vector3.Distance(xzTargetPosition, Transform.position) >= AttackTimes.Min(kvp => kvp.Key.MaxAttackRange);
+            Vector3 directionTowardsTarget = (xzTargetPosition - Transform.position).normalized;
+            Transform.Translate(-directionTowardsTarget * Time.deltaTime * Agent.speed / 2, Space.World);
+            if (XZDistanceIsLessThanMinAttackDistance(attack))
+            {
+                Animator.SetFloat(AnimationConstants.SPEED_PARAMETER, Agent.speed / 2);
+                Animator.SetFloat(AnimationConstants.DIRECTION_PARAMETER, -1);
+                return false;
+            }
+
+            Animator.SetFloat(AnimationConstants.DIRECTION_PARAMETER, 1);
+            Animator.SetFloat(AnimationConstants.SPEED_PARAMETER, 0);
+            return true;
+        }
+
+        private bool XZDistanceIsLessThanMinAttackDistance(AttackTypeSO attack)
+        {
+            Vector3 xzTargetPosition = new (TargetPosition.x, Transform.position.y, TargetPosition.z);
+            return Vector3.Distance(xzTargetPosition, Transform.position) <= attack.GetMinAttackRange(Damageable);
         }
     }
 }
