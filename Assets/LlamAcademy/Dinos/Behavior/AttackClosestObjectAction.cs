@@ -88,7 +88,6 @@ namespace LlamAcademy.Dinos.Behavior
                 return Status.Running;
             }
 
-
             if (Animator != null)
             {
                 Animator.SetTrigger(AnimationConstants.IS_ATTACKING_PARAMETER);
